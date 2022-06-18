@@ -1,0 +1,109 @@
+>>>>>INPUT CHECKING<<<<<
+1) check if they're numbers /DONE
+2) check the size of int /DONE
+3) check how many -- irrelevant? this will come later when sorting
+4) check the duplicates /DONE
+
+2) do I check the sizeof first? yes - it's not that difficult
+and I can use it
+so if sizeof int == 2 check againt these values: -32768 & 32767
+if sizeof int == 4 check against these values: –2147483648 &
+														2147483647
+to make it even better, I could have it calculate the max values
+I'd need my own pow function
+buuut is it worth ittttt
+
+3) it makes sense to put it above the other checks
+remember that 1 arg is going to be the launch of the program
+so if argc is 2 - then I have one arg
+and also - I do not want to check the first one in the number check 
+let's confirm if that's the thing with argv
+
+yup - argv[0] is the ./ thing
+so the first actual number is going to be at argv[1]
+
+ok so I need at least 2 numbers - so at least 3 argc
+do I even need to do anything tho 
+then I guess it will just not sort
+let's skip it for nowww 
+
+1) second thing to confirm - the argv things are strings
+so I cannot just compare them with the numbers
+I have to translate them to ints first
+yup - it's a char ** and it must beeee
+
+confirmed - use atoi. refresh on atoi:
+- it skips the spaces in the strings
+- if it finds a - or + it calculates the sign out of it
+for [-]: 44 - 45 = -1
+for [+]: 44 - 43 = 1
+- then we have the part that translates string into a number
+if the value of the char is within those that are assigned to 
+representing ints - then I calculate the number by adequatly * 10 
+and subtracting the '0' which converts it into ints
+and I have that in the loop 
+okay 
+that's covered
+
+>>>> ATTENTION <<<<
+there might be only one argument that is a number - then do nothing
+if however the arg is not a number - then do the error thing
+so first check the validity of the input - and then the number
+or, if there's only one arg - check if it's a number
+
+atoi returns a zero when given a zero or when the string is not numbers
+
+also I have to load the ints to the stack, so maybe I could have it done already 
+or maybe it doesnt matter
+orrr since atoi is not returning anything special when there are alpha chars
+maybe I should have a different checker - just a function that goes argv to argv 
+and that goes through the chars of it yupp
+
+ah also - reading the input will skip the white chars already - so I dont need to skip them
+
+>>>>>
+- I have one argument - I have to check if it's a number 
+if it's not a number - return the error
+but if it is one - then later, when I actually move to the sorting part, 
+I do sorting only when I have more args
+so at this point of input checking, it's enough
+
+- I check if all of the arguments are numbers
+if they are, I can move on to checking the sizes -
+and because I've already checked if they're all number, 
+(if they got to this point, then they are numbers)
+then I don't have to worry about the atoi not taking care of that
+
+but
+
+what needs to be done now is the length of the thing
+because atoi is not going to work for the longer strings
+
+so many ways to do it!
+you can have the atoli - and just save the thing in the long long and then compare
+or you can compare strings
+oorrr you cantake the atoi return - convert it into string againXD
+and then compare to the string you were given...?
+
+just ude strncmp - 'it does not crash' :')
+ok so strncmp:
+it will compare fot n bytes or until it hits the end of any string
+let's put a max value in the second string 
+and the string to compare as s1
+then if the ret of strncmp is > 0 then it's bigger than int
+
+and now: because I can have a - or a plus sign 
+first search for it and skip if it's there
+and then strncmp
+for how long tho? for the strlen of the input?
+and also, it will run out of n bytes
+
+ok
+if there's a minus
+k++
+and compare WITHIN THE IF THAT CHECKS FOR -
+
+4) check for duplicates - how to have that efficient?
+there's no way - just strncmp
+
+ ./push_swap 11 234 –879879
