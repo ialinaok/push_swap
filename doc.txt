@@ -128,86 +128,84 @@ stack b is getting it's elements when pb is executed
 BUT IT'S GETTING ELEMENTS in a different order. 
 pa and pb are putting elements to the front of the list
 
-2_ sa - swap a
+2_ sa - swap a /////DONE
 takes stack a 
 swaps two top elements - so the two elements that are first
 if there's no elements or only one element - do nothing
 use lstsize to check if I swap - it needs to return at least two
 
-3_ sb - swap b
-4_ ss - swap a and b at the same time
-5_ pa - push a
-6_ pb - push b
-7_ ra - rotate a
-8_ rb - rotate b
-9_ rr - rotate a and b at the same time
+3_ sb - swap b /////DONE
+same as swap b but it takes stack b
+4_ ss - swap a and b at the same time ////DONE
+this just needs to take two different stacks and pass accordingly
+
+5_ pa - push a /////DONE
+take element from on top of b and put it on top of a
+do nothing if b is empty
+so the function takes two heads
+and checks the things
+and does the thing
+aaandd you could make it universal - and put either a first or b first
+from - take the first element
+so it's *head_from
+I have to create a new node for stack b? no - I just have to repoint things
+
+ok since what I need to repoint changes depending on the amount of elements in the stack
+so again - use the lstsize ON BOTH stacks
+they will not be both empty ever
+I will have at least two elements in total
+so if there's 1 el in the to/from
+then there's also at least one in to/from
+
+if stack_to is empty
+	[ temp = head_from ]
+	[ head_from = el1(of stack from)->next ]
+	[ head_to = temp ]
+
+{if stack_from has 1 element
+	[ el(of stack from)->next = head_to ]
+	[ head_to = head_from ]
+	[ head_from = NULL ]}
+
+if stack_from has more than 1 element and stack_to has at least one
+	[ temp = head_from ]
+	[ head_from = el1(of stack from)->next ]
+	[ el1(of stack from)->next = head_to ]
+	[ head_to = temp ]
+
+ok it turned out it can work for both 
+so umm there's no longer need to check if from has 1 element
+basically two scenarios: when the operation happens: stack to is empty 
+or it's not empty 
+and there's no pushing if stack from is empty
+
+HAHAHA
+in the end it just works for all with the same thing
+
+6_ pb - push b //////DONE
+just pass stacks in different order - first pass head_b
+
+7_ ra - rotate a //////DONE
+
+[temp = *head]
+[*head = el1->next]
+[el1->next = last->next]
+[last->next = temp]
+
+8_ rb - rotate b ///////DONE
+just pass a head to b
+9_ rr - rotate a and b at the same time ////DONE
+pass both and put both inside
 10_ rra - reverse rotate a
+
+for these I need a function that finds me a one before the last el
+got it
+
+[ temp = *head ]
+[ *head = 1b4last->next ]
+[ 1b4last->next = last->next ]
+[ last->next = temp ]
+
 11_ rrb - reverse rotate b
 12_ rrr - reverse rotate both a and b
 
-#include "../push_swap.h"
-
-t_list	*ft_lstnew(int content)
-{
-	t_list	*newnode;
-
-	newnode = (t_list *)malloc(sizeof(t_list));
-	if (!newnode)
-		return (NULL);
-	newnode->content = content;
-	newnode->next = NULL;
-	return (newnode);
-}
-
-t_list	*ft_lstlast(t_list *lst)
-{
-	if (lst == NULL)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
-}
-
-void	ft_lstadd_back(t_list **lst, t_list *newnode)
-{
-	t_list	*last;
-
-	if (*lst != NULL)
-	{
-		last = ft_lstlast(*lst);
-		last->next = newnode;
-	}
-	else
-		*lst = newnode;
-}
-
-int	ft_lstsize(t_list *lst)
-{
-	int		len;
-
-	len = 0;
-	while (lst != NULL)
-	{
-		len++;
-		lst = lst->next;
-	}
-	return (len);
-}
-
-void	printlist(t_list *head_a, t_list *head_b)
-{
-	t_list	*temp_a = head_a;
-	t_list	*temp_b = head_b;
-	
-	while (temp_a != NULL)
-	{
-		printf("%d\n", temp_a->content);
-		if (temp_b != NULL)
-		{
-			printf("%d\n", temp_b->content);
-			temp_b = temp_b->next;
-		}
-		temp_a = temp_a->next;
-	}
-	printf("_\t_\na\tb\n");
-}
