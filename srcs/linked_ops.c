@@ -6,13 +6,13 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 22:58:17 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/18 23:22:54 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/19 14:46:19 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*newnode;
 
@@ -44,4 +44,22 @@ void	ft_lstadd_back(t_list **lst, t_list *newnode)
 	}
 	else
 		*lst = newnode;
+}
+
+void	printlist(t_list *head_a, t_list *head_b)
+{
+	t_list	*temp_a = head_a;
+	t_list	*temp_b = head_b;
+	
+	while (temp_a != NULL)
+	{
+		printf("%d\n", temp_a->content);
+		if (temp_b != NULL)
+		{
+			printf("%d\n", temp_b->content);
+			temp_b = temp_b->next;
+		}
+		temp_a = temp_a->next;
+	}
+	printf("_\t_\na\tb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 15:23:19 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/18 23:55:52 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/19 12:44:57 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,13 @@ int	check_if_number(int argc, char **argv)
 		k = 0;
 		while (k < ft_strlen(argv[i]))
 		{
-			printf(">>>>>i: %d, k: %d, look here: %d\n", i, k, argv[i][k+1]);
 			if (argv[i][k] == '-' || argv[i][k] == '+')
-			{
-				printf("what the actual....\n");
 				k++;
-			}
-			printf("alsoooo k: %d\n", k);
 			while ((argv[i][k] >= '0' && argv[i][k] <= '9') \
 			&& k < ft_strlen(argv[i]))
 				k++;
-			printf("also k: %d\n", k);
 			if (k != ft_strlen(argv[i]))
-			{
-				printf("here?\nk: %d\n strlen: %d\n", k, ft_strlen(argv[i]));
 				return (-1);
-			}
 		}
 		i++;
 	}
@@ -114,8 +105,8 @@ int	check_input(int argc, char **argv)
 	if (check_if_number(argc, argv) == -1)
 		return (-1);
 	else if (check_if_too_big(argc, argv) == -1)
-		return (-2);
+		return (-1);
 	else if (check_for_duplicates(argc, argv) == -1)
-		return (-3);
+		return (-1);
 	return (0);
 }

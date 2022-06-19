@@ -6,7 +6,7 @@
 #    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/16 20:48:14 by apielasz          #+#    #+#              #
-#    Updated: 2022/06/18 23:20:15 by apielasz         ###   ########.fr        #
+#    Updated: 2022/06/19 14:57:10 by apielasz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ SRCS = push_swap.c \
 		srcs/check_if_too_big.c \
 		srcs/check_input.c \
 		srcs/linked_ops.c \
-		srcs/utils.c
+		srcs/utils.c \
+		srcs/operations_1.c \
+		srcs/operations_2.c
 
 OBJS = $(SRCS:.c=.o)
 

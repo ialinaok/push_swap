@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:54:36 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/18 23:26:01 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/19 14:40:53 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	int				content;
 	struct s_list	*next;
 }	t_list;
 
@@ -31,7 +31,8 @@ typedef struct s_intsize
 }	t_intsize;
 
 /* push_swap.c */
-int	show_error_msg(void);
+int		show_error_msg(void);
+void	load_a(int argc, char **argv, t_list **head);
 
 /* check_input.c */
 int	check_if_number(int argc, char **argv);
@@ -48,14 +49,14 @@ int	deal_with_minus(int i, int k, t_intsize *val, char **argv);
 int	deal_with_plus(int i, int k, t_intsize *val, char **argv);
 
 /* linked_ops.c */
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *newnode);
-
+void	printlist(t_list *head_a, t_list *head_b);
 /* utils.c */
-int	ft_atoi(const char *nptr);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_atoi(const char *nptr);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size);
-int	ft_strlen(const char *s);
+int		ft_strlen(const char *s);
 
 #endif

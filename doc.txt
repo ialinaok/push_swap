@@ -107,3 +107,35 @@ and compare WITHIN THE IF THAT CHECKS FOR -
 there's no way - just strncmp
 
  ./push_swap 11 234 –879879
+
+ >>> it seems I finished input checking!
+
+ >>>>FUNCTIONS FOR OPERATIONS<<<<
+
+it would be necessary to have a function that currently displays the stack status
+so I need a function that prints the values of the linked list nodes
+but I only need it for now, so I can use printf
+
+1_ load numbers to stack a /////DONE
+	the first argument should be on top of a
+	I need to go in the loop with the argc
+	and assign the values to the content
+	so it could be something similar to the printing function, but it could do a different thing
+NULL ptr - when printed - 0x0
+
+STACK b - I need stack b - it should be another linked list
+stack b is getting it's elements when pb is executed
+BUT IT'S GETTING ELEMENTS in a different order. 
+pa and pb are putting elements to the front of the list
+
+2_ sa - swap a
+3_ sb - swap b
+4_ ss - swap a and b at the same time
+5_ pa - push a
+6_ pb - push b
+7_ ra - rotate a
+8_ rb - rotate b
+9_ rr - rotate a and b at the same time
+10_ rra - reverse rotate a
+11_ rrb - reverse rotate b
+12_ rrr - reverse rotate both a and b
