@@ -129,6 +129,11 @@ BUT IT'S GETTING ELEMENTS in a different order.
 pa and pb are putting elements to the front of the list
 
 2_ sa - swap a
+takes stack a 
+swaps two top elements - so the two elements that are first
+if there's no elements or only one element - do nothing
+use lstsize to check if I swap - it needs to return at least two
+
 3_ sb - swap b
 4_ ss - swap a and b at the same time
 5_ pa - push a

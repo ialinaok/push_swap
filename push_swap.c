@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:53:01 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/19 14:47:04 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/19 15:58:41 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	show_error_msg(void)
 	return (-1);
 }
 
-void	load_a(int argc, char **argv, t_list **head)
+void	load_a(int argc, char **argv, t_list **head_a)
 {
 	int	i;
 	// int	content;
@@ -30,7 +30,7 @@ void	load_a(int argc, char **argv, t_list **head)
 		// content = ft_atoi(argv[i]);
 		// newnode = ft_lstnew(content);
 		// ft_lstadd_back(head, newnode);
-		ft_lstadd_back(head, ft_lstnew(ft_atoi(argv[i])));
+		ft_lstadd_back(head_a, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
 }

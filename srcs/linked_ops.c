@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 22:58:17 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/19 14:46:19 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/19 16:01:05 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,19 @@ void	ft_lstadd_back(t_list **lst, t_list *newnode)
 	}
 	else
 		*lst = newnode;
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int		len;
+
+	len = 0;
+	while (lst != NULL)
+	{
+		len++;
+		lst = lst->next;
+	}
+	return (len);
 }
 
 void	printlist(t_list *head_a, t_list *head_b)
