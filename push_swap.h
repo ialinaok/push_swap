@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:54:36 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/19 21:06:03 by ialinaok         ###   ########.fr       */
+/*   Updated: 2022/06/19 22:02:42 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,23 @@ void	ft_lstadd_back(t_list **lst, t_list *newnode);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	printlist(t_list *head_a, t_list *head_b);
+
 /* utils.c */
 int		ft_atoi(const char *nptr);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size);
 int		ft_strlen(const char *s);
+
+/* operations_1.c */
+void	swap(t_list **head);
+void	swap_both(t_list **head_a, t_list **head_b);
+void	push(t_list **head_to, t_list **head_from);
+void	rotate(t_list **head);
+void	rotate_both(t_list **head_a, t_list **head_b);
+
+/* operations_2.c */
+t_list	*ft_one_b4_last(t_list *lst);
+void	reverse(t_list **head);
+void	reverse_both(t_list **head_a, t_list **head_b);
 
 #endif
