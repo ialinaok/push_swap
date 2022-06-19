@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_2.c                                     :+:      :+:    :+:   */
+/*   reversing.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 21:20:03 by ialinaok          #+#    #+#             */
-/*   Updated: 2022/06/19 21:53:03 by ialinaok         ###   ########.fr       */
+/*   Updated: 2022/06/19 22:33:39 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,21 @@ void	reverse(t_list **head)
 	last->next = temp;
 }
 
+void	rra(t_list **head)
+{
+	write(1, "rra\n", 4);
+	reverse(head);
+}
+
+void	rrb(t_list **head)
+{
+	write(1, "rrb\n", 4);
+	reverse(head);
+}
+
 void	reverse_both(t_list **head_a, t_list **head_b)
 {
+	write(1, "rrr\n", 4);
 	reverse(head_a);
 	reverse(head_b);
 }

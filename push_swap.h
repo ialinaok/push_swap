@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:54:36 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/19 22:02:42 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/19 22:38:22 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,28 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size);
 int		ft_strlen(const char *s);
 
-/* operations_1.c */
+/* swapping.c */
 void	swap(t_list **head);
+void	sa(t_list **head);
+void	sb(t_list **head);
 void	swap_both(t_list **head_a, t_list **head_b);
+
+/* pushing.c */
 void	push(t_list **head_to, t_list **head_from);
+void	pa(t_list **head_a, t_list **head_b);
+void	pb(t_list **head_b, t_list **head_a);
+
+/* rotating.c */
 void	rotate(t_list **head);
+void	ra(t_list **head);
+void	rb(t_list **head);
 void	rotate_both(t_list **head_a, t_list **head_b);
 
-/* operations_2.c */
+/* reversing.c */
 t_list	*ft_one_b4_last(t_list *lst);
 void	reverse(t_list **head);
+void	rra(t_list **head);
+void	rrb(t_list **head);
 void	reverse_both(t_list **head_a, t_list **head_b);
 
 #endif
