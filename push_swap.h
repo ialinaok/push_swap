@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:54:36 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/19 22:38:22 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/21 00:42:18 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 
@@ -33,6 +34,7 @@ typedef struct s_intsize
 /* push_swap.c */
 int		show_error_msg(void);
 void	load_a(int argc, char **argv, t_list **head);
+void	assign_index(t_list **head, int len);
 
 /* check_input.c */
 int	check_if_number(int argc, char **argv);
@@ -53,8 +55,9 @@ t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *newnode);
 int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
+void	ft_lstclear(t_list **lst);
 void	printlist(t_list *head_a, t_list *head_b);
+t_list	*get_nth_el(t_list *head, int n);
 
 /* utils.c */
 int		ft_atoi(const char *nptr);
@@ -85,5 +88,8 @@ void	reverse(t_list **head);
 void	rra(t_list **head);
 void	rrb(t_list **head);
 void	reverse_both(t_list **head_a, t_list **head_b);
+
+/* radix.c */
+void	radix(t_list **head_a, t_list **head_b, int len);
 
 #endif

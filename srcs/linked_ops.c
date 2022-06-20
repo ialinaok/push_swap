@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 22:58:17 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/19 21:47:14 by ialinaok         ###   ########.fr       */
+/*   Updated: 2022/06/21 00:57:00 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,22 @@ int	ft_lstsize(t_list *lst)
 	return (len);
 }
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstclear(t_list **lst)
 {
-	if (lst == NULL)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	t_list	*first;
+	t_list	*next;
+
+	if (lst)
+	{
+		next = *lst;
+		while (next != NULL)
+		{
+			first = next;
+			next = next->next;
+			free(first);
+		}
+		*lst = NULL;
+	}
 }
 
 void	printlist(t_list *head_a, t_list *head_b)
@@ -75,13 +84,27 @@ void	printlist(t_list *head_a, t_list *head_b)
 	
 	while (temp_a != NULL)
 	{
-		printf("%d\n", temp_a->content);
+		printf("%d\n", temp_a->index);
 		if (temp_b != NULL)
 		{
-			printf("%d\n", temp_b->content);
+			printf("%d\n", temp_b->index);
 			temp_b = temp_b->next;
 		}
 		temp_a = temp_a->next;
 	}
-	printf("_\t_\na\tb\n");
+	printf("_\t_\na\tb\n\n");
+}
+
+t_list	*get_nth_el(t_list *head, int n)
+{
+	int	i;
+	t_list	*temp;
+
+	i = 0;
+	temp = head;
+	if (temp == NULL)
+		return (NULL);
+	if (n == 0)
+		return (temp);
+	return (get_nth_el(temp->next, n - 1));
 }

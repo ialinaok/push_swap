@@ -209,3 +209,188 @@ got it
 11_ rrb - reverse rotate b
 12_ rrr - reverse rotate both a and b
 
+all DONE
+
+<<<<< ALGORITHM >>>>>
+
+radix sort
+..........
+	using counting sort over and over
+
+	1 - give the indexes
+	3 - then what bc I have my instructions and I need to only follow them
+depending on where the number is, it's going to be better to use one operation or the other
+find the half?
+push them all to stack b in reverse order - let's start with that?
+1 5 10 8 13 14 11 7 0 4 12 3 15 6 9 2
+
+we do all this to find the starting index of the element
+ok, I look at the last digit
+0 1 2 3 4 5 6 7 8 9
+0 0 0 0 0 0 0 0 0 0
+
+I look for the 0's
+0 1 2 3 4 5 6 7 8 9
+2 0 0 0 0 0 0 0 0 0
+
+I look for the 1's
+0 1 2 3 4 5 6 7 8 9
+2 2 0 0 0 0 0 0 0 0
+
+I look for 2's
+0 1 2 3 4 5 6 7 8 9
+2 2 2 0 0 0 0 0 0 0
+
+for the 3s
+0 1 2 3 4 5 6 7 8 9
+2 2 2 2 0 0 0 0 0 0
+
+for the 4s
+0 1 2 3 4 5 6 7 8 9
+2 2 2 2 2 0 0 0 0 0
+
+for the 5s
+0 1 2 3 4 5 6 7 8 9
+2 2 2 2 2 2 0 0 0 0
+
+for the sixes
+0 1 2 3 4 5 6 7 8 9
+2 2 2 2 2 2 1 0 0 0
+
+for the 7s
+0 1 2 3 4 5 6 7 8 9
+2 2 2 2 2 2 1 1 0 0
+
+for the 8s
+0 1 2 3 4 5 6 7 8 9
+2 2 2 2 2 2 1 1 1 0
+
+for the 9s
+0 1 2 3 4 5 6 7 8 9
+2 2 2 2 2 2 1 1 1 1
+
+and now that I have these values, I have to move them to pb in the correct order
+now we have to add each number to the right accumulitavely
+so 
+
+0 1 2 3  4  5  6  7  8  9
+2 4 6 8 10 12 13 14 15 16 - x amount of numbers
+
+now we have to shift this to the right
+starting with the last index
+0 1 2 3 4  5  6  7  8  9
+0 2 4 6 8 10 12 13 14 15 - i for index
+
+so now, if a index number has a 9 in the last digit place
+I put it accordingly
+0 1 2 3 4 5 6 7 8 9 - d for digit
+
+if has a d - put x amount at the ith position
+	if has a zero - put 2 at the beginning
+	0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+	10 0
+	if has a (1) - put 2 in the arr[2]
+	0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+	10 0  1 11
+	if has a (2) - put 2 in the arr[4]
+	0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+	10 0  1 11 12  2
+	if has a (3) - put 2 in the arr[6]
+	0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+	10 0  1 11 12  2 13  3 
+	if has a (4) - put 2 in the arr[8]
+	0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+	10 0  1 11 12  2 13  3 14  4
+	if has a (5) - put 2 in the arr[10]
+	0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+	10 0  1 11 12  2 13  3 14  4   5  15
+	if has a (6) - put 1 in the arr[12]
+	0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+	10 0  1 11 12  2 13  3 14  4   5  15   6 
+	if has a (7) - put 1 in the arr[13]
+	0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+	10 0  1 11 12  2 13  3 14  4   5  15   6   7
+	if has a (8) - put 1 in the arr[14]
+	0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+	10 0  1 11 12  2 13  3 14  4   5  15   6   7   8
+	if has a (9) - put 1 in the arr[15]
+	0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
+	10 0  1 11 12  2 13  3 14  4   5  15   6   7   8   9
+
+I have a new order - and I have to obtain it with the pb sa and so on
+	==> I'll get there later
+
+how do I know that the numbers are not yet sorted? I have to do it as
+many times as I have digits in the highest number
+so in this case - 2 times, one is already done. let's go again:
+	10 0  1 11 12  2 13  3 14  4   5  15   6   7   8   9
+now I look at the first digit - if there's only one digit, I put a zero
+0 1 2 3 4 5 6 7 8 9
+0 0 0 0 0 0 0 0 0 0
+
+I look for the 0's
+0 1 2 3 4 5 6 7 8 9
+10
+
+I look for the 1's
+0  1 2 3 4 5 6 7 8 9
+10 6
+
+[....]
+final: 
+I look for the 1's
+0  1 2 3 4 5 6 7 8 9
+10 6 0 0 0 0 0 0 0 0 - the x
+
+now I add:
+0   1  2  3  4  5  6  7  8  9
+10 16 16 16 16 16 16 16 16 16
+
+now I shift:
+0   1  2  3  4  5  6  7  8  9
+0  10 16 16 16 16 16 16 16 16
+
+now I fill:
+put 10 zeroes in the index 0
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+0 1 2 3 4 5 6 7 8 9
+
+put ones at index [10]
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+that's magic....
+ok, now to the difficult part - how to move them with the ops that we have
+shift between a and b?
+
+how to put accordingly - I first gather all the info
+when I have it, I can move the elements
+so, I am looking for the 0 in the last digit
+if it's higher than half of the stack, I rotate and then push
+if it's lower - I reverse rotate and push
+or
+I can only swap the top 2 elements
+so I rotate and by doing to I already bring the next number closer
+so I could have a look at the other number already when picking the
+instructions
+
+the solution to that problem is - do it on the binary 
+radix works faster when there's less buckets
+
+____ASSIGN_INDEX____
+find the smallest value
+give it value of i
+start over
+find the second smallest value
+
+ok, I can go through the list
+and each time find the smallest value
+and if the smallest value already has an index
+then skip
+if doesnt have index - assigne the index
+and repeat nahhh this will not workkkk
+but - I could have the temp min
+and remember the node (index)
+add the index to the struct? yes
+
+stack A for 1, stack b for 0
