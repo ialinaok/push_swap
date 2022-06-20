@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:53:01 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/21 01:07:47 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/21 01:37:30 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,14 @@ void	assign_index(t_list **head, int len)
 	}
 }
 
+void	choose_sort(t_list **head_a, t_list **head_b, int len)
+{
+	if (len == 2)
+		sort_two(head_a);
+	if (len == 3)
+		sort_three(head_a);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*head_a;
@@ -79,6 +87,7 @@ int	main(int argc, char **argv)
 	len = ft_lstsize(head_a);
 	printf("len in main: %d\n", len);
 	assign_index(&head_a, len);
+	choose_sort(&head_a, &head_b, len);
 	radix(&head_a, &head_b, len);
 	printlist(head_a, head_b);
 	ft_lstclear(&head_a);
