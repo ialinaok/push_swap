@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 22:58:17 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/21 00:57:00 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/22 15:41:42 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,12 @@ void	printlist(t_list *head_a, t_list *head_b)
 	
 	while (temp_a != NULL)
 	{
-		printf("%d\n", temp_a->index);
+		printf("%d  ", temp_a->index);
+		printf("%d\n", temp_a->content);
 		if (temp_b != NULL)
 		{
-			printf("%d\n", temp_b->index);
+			printf("%d  ", temp_b->index);
+			printf("%d\n", temp_b->content);
 			temp_b = temp_b->next;
 		}
 		temp_a = temp_a->next;

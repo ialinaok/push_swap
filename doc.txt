@@ -394,3 +394,70 @@ and remember the node (index)
 add the index to the struct? yes
 
 stack A for 1, stack b for 0
+
+SESSION WITH ALISTAIR
+check the size of the stack
+
+- find the longest run, define where in the stack does it start
+- each loop ends in set of operations
+it will always end in pa or pb
+
+'and then we have to figure out what to do'
+
+ok so every iter - get the longest run
+check for the min pos if it's on the top when len_longest == stack_len
+
+the b stack has sorted numbers
+
+check if you can push to a
+size - total length of sth
+check against the current stack a
+or if there are still elements in stack b
+
+when stack a is already sorted, we rra and we see if we can 
+push elements from b
+
+case: we have the longest run wrapping around some unsorted values
+so we compare - where's the end of the run against the run_len
+
+ALWAYS CHECK IF YOU CAN ADD STUFF FROM b
+
+if the top value fits exactly before the first value - swap
+otherwise push to b
+
+push to b
+stack b should be descending
+
+simulate the scenarios - ???????
+I know the situation - I know the unsorted number and i know
+stack b values
+how do I assess what operations I do?
+ok - if it's 3 pos from the beginning - check where it fits in stack b
+in the end I'm only going to push one value to stack b
+so I have to check for which value it's the best to do it (the smallest amount of steps)
+
+if the number is fitting to stack b - perf, just push
+if not fitting - see how many pushes you'd have to do in b to make it fits
+
+REMEMBER THAT NUMBER
+
+look at the second number from the unsorted stack - add ++ to the number already
+(because you have to ra or rra)
+look if it fits
+if it doesnt - what you'd have to do to make it fit
+
+you can also push to b and swap
+
+OK JUST DO THE ROTATIONS
+- check if you can push the number
+- if you can't push the number, check where it would fit in b
+- if it is below the middle point -- rra
+	if it's above the middle point -- ra
+SAVE THE NUMBER OF OPS
+- check if the next/previous number would fit - if yes, see how many ops
+it would take you, compare with the previous one - if it's smaller,
+save that
+and keep going through all of the numbers - maybe save a number in struct 
+that rememers to which set of instructions the smallest value belong
+
+
