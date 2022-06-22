@@ -6,52 +6,54 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 00:05:38 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/22 19:39:08 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/22 19:57:47 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	radix(t_list **head_a, t_list **head_b, int len)
+void	ra_or_pb(t_list **head_a, t_list **head_b, int max_shift)
 {
-	int	max_el;
-	int	max_shift;
-	int	i;
-	int	j;
 	t_list	*top;
+
+	top = *head_a;
+	if (((top->index >> max_shift) & 1) == 1)
+		ra(head_a);
+	else
+		pb(head_b, head_a);
+}
+
+t_list	*back_to_a(t_list **head_a, t_list **head_b)
+{
+	pa(head_a, head_b);
+	return (*head_b);
+}
+
+void	radix(t_list **head_a, t_list **head_b, int max_el)
+{
+	int		max_shift;
+	int		i;
+	int		j;
 	t_list	*temp;
 
-	// top = *head_a;
-
-	max_el = len - 1;
 	max_shift = 0;
 	temp = *head_b;
-	// printf("len: %d, max_el: %d, max_shift: %d\n", len, max_el, max_shift);
-	while ((max_el>>max_shift) != 0)
+	while ((max_el >> max_shift) != 0)
 	{
-		// printf("ignore me %d\n", blah);
 		i = 0;
 		while (i <= max_shift)
 		{
 			j = 0;
-			while (j < len)
+			while (j < max_el + 1)
 			{
-				top = *head_a;
-				if (((top->index>>max_shift)&1) == 1)
-					ra(head_a);
-				else
-					pb(head_b, head_a);
+				ra_or_pb(head_a, head_b, max_shift);
 				j++;
 			}
 			temp = *head_b;
 			while (temp != NULL)
-			{
-				pa(head_a, head_b);
-				temp = *head_b;
-			}
+				temp = back_to_a(head_a, head_b);
 			i++;
 		}
-		// printlist(*head_a, *head_b);
 		max_shift++;
 	}
 }
