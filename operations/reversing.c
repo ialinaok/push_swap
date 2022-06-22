@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 21:20:03 by ialinaok          #+#    #+#             */
-/*   Updated: 2022/06/19 22:33:39 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/23 00:19:17 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_list	*ft_one_b4_last(t_list *lst)
 {
 	t_list	*fwd;
-	
+
 	if (lst == NULL)
 		return (NULL);
 	fwd = lst->next;

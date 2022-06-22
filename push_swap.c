@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:53:01 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/22 19:39:58 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/23 00:16:26 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	load_a(int argc, char **argv, t_list **head_a)
 		newnode = ft_lstnew(content);
 		newnode->index = -1;
 		ft_lstadd_back(head_a, newnode);
-		// ft_lstadd_back(head_a, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
 }
@@ -64,13 +63,21 @@ void	assign_index(t_list **head, int len)
 	}
 }
 
-// void	choose_sort(t_list **head_a, t_list **head_b, int len)
-// {
-// 	if (len == 2)
-// 		sort_two(head_a);
-// 	if (len == 3)
-// 		sort_three(head_a);
-// }
+void	choose_sort(t_list **head_a, t_list **head_b, int len)
+{
+	*head_a = NULL;
+	*head_b = NULL;
+	if (len == 1)
+		return ;
+	else if (len == 2)
+		sort_two(head_a);
+	else if (len == 3)
+		sort_three(head_a);
+	else if (len == 5)
+		sort_five(head_a, head_b);
+	else
+		radix(head_a, head_b, len - 1);
+}
 
 int	main(int argc, char **argv)
 {
@@ -87,10 +94,14 @@ int	main(int argc, char **argv)
 	load_a(argc, argv, &head_a);
 	len = ft_lstsize(head_a);
 	assign_index(&head_a, len);
-	// printlist(head_a, head_b);
-	// choose_sort(&head_a, &head_b, len);
-	radix(&head_a, &head_b, len);
-	// printlist(head_a, head_b);
+	if (len == 2)
+		sort_two(&head_a);
+	else if (len == 3)
+		sort_three(&head_a);
+	else if (len == 5)
+		sort_five(&head_a, &head_b);
+	else
+		radix(&head_a, &head_b, len - 1);
 	ft_lstclear(&head_a);
 	ft_lstclear(&head_b);
 	return (0);

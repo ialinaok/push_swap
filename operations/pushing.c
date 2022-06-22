@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 22:30:29 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/19 22:30:57 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/23 00:19:04 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push(t_list **head_to, t_list **head_from)
 {
 	t_list	*temp;
 	t_list	*el1;
-	int	lento;
+	int		lento;
 
 	lento = ft_lstsize(*head_to);
 	el1 = *head_from;

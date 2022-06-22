@@ -80,6 +80,25 @@ void	printlist(t_list *head)
 	printf("NULL\n");
 }
 
+void	sort_five(t_list **head_a, t_list **head_b)
+{
+	t_list	*top;
+	t_list	*min;
+	int		i;
+
+	top = *head_a;
+	i = 0;
+	while (top->index != 0)
+		ra(head_a);
+	pb(head_b, head_a);
+	while (top->index != 0)
+		ra(head_a);
+	pb(head_b, head_a);
+	sort_three(head_a);
+	pa(head_a, head_b);
+	pa(head_a, head_b);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	el1, el2, el3, el4;

@@ -460,4 +460,45 @@ save that
 and keep going through all of the numbers - maybe save a number in struct 
 that rememers to which set of instructions the smallest value belong
 
+I could optimise the radix by not pushing if there's no more numbers that would fit
+then I don't do pb and then pa - let's make it in another function
 
+optimisation would be - before you push to b, check if there'd be anything else to push
+if not - leave it
+if yes - push it
+
+it will save me literally a couple of moves... but let's try to implement that
+
+66 is optimised
+66 is not optimised :PPP
+
+ok, the mistake is that I always check from the top
+and I don't want to check the first one
+
+OMGGG cut down to 23......
+
+3 0 1 9 7 2 5 16 6 10 11 12 17 14 18 29 33
+"3", "0", "1", "9", "7", "2", "5", "16", "6", "10", "11", "12", "17", "14", "18", "29", "33"
+
+ok so what's wrong is in that algo - it starts pushing much earlier
+LOGIC again
+I put else if.....
+I push things to be that do not belong there!
+ok still not fully working but better
+and again - logic. OR instead of AND
+
+425 vs 
+281 vs 425 whaaaatttttt
+
+ok not understanding the bit thing correct
+this is literally only equal to zero when I give it zero
+
+ok what should I check for
+if there's something in stack a that would be pushed
+
+ok what do I need to do for the five numbers:
+find the smallest
+rotate ra or rra depending on where it is
+push it to b
+then find the second smallest - same 
+and push to b

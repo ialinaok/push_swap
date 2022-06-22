@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 15:23:19 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/19 12:44:57 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/23 00:19:29 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	check_if_number(int argc, char **argv)
 	k = 0;
 	while (i < argc)
 	{
-		// printf("i: %d, number: %s\n", i, argv[i]);
 		k = 0;
 		while (k < ft_strlen(argv[i]))
 		{
@@ -75,7 +74,7 @@ int	get_size_to_compare(char *argvi, char *argvk)
 		n = leni;
 	else
 		n = lenk;
-	return(n);
+	return (n);
 }
 
 int	check_for_duplicates(int argc, char **argv)

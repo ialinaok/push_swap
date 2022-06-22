@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 00:05:38 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/22 19:57:47 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/22 23:52:20 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,18 @@
 void	ra_or_pb(t_list **head_a, t_list **head_b, int max_shift)
 {
 	t_list	*top;
+	t_list	*temp;
+	int		i;
 
+	i = 0;
 	top = *head_a;
+	temp = top;
+	while (temp != NULL)
+	{
+		if (((temp->index >> max_shift) & 1) == 0)
+			i++;
+		temp = temp->next;
+	}
 	if (((top->index >> max_shift) & 1) == 1)
 		ra(head_a);
 	else
@@ -32,7 +42,6 @@ t_list	*back_to_a(t_list **head_a, t_list **head_b)
 void	radix(t_list **head_a, t_list **head_b, int max_el)
 {
 	int		max_shift;
-	int		i;
 	int		j;
 	t_list	*temp;
 
@@ -40,20 +49,15 @@ void	radix(t_list **head_a, t_list **head_b, int max_el)
 	temp = *head_b;
 	while ((max_el >> max_shift) != 0)
 	{
-		i = 0;
-		while (i <= max_shift)
+		j = 0;
+		while (j < max_el + 1)
 		{
-			j = 0;
-			while (j < max_el + 1)
-			{
-				ra_or_pb(head_a, head_b, max_shift);
-				j++;
-			}
-			temp = *head_b;
-			while (temp != NULL)
-				temp = back_to_a(head_a, head_b);
-			i++;
+			ra_or_pb(head_a, head_b, max_shift);
+			j++;
 		}
+		temp = *head_b;
+		while (temp != NULL)
+			temp = back_to_a(head_a, head_b);
 		max_shift++;
 	}
 }
