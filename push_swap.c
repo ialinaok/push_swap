@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 21:53:01 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/22 16:24:41 by ialinaok         ###   ########.fr       */
+/*   Updated: 2022/06/22 19:39:58 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,11 @@ int	main(int argc, char **argv)
 		return (show_error_msg());
 	load_a(argc, argv, &head_a);
 	len = ft_lstsize(head_a);
-	printf("len in main: %d\n", len);
 	assign_index(&head_a, len);
-	printlist(head_a, head_b);
+	// printlist(head_a, head_b);
 	// choose_sort(&head_a, &head_b, len);
 	radix(&head_a, &head_b, len);
-	printlist(head_a, head_b);
+	// printlist(head_a, head_b);
 	ft_lstclear(&head_a);
 	ft_lstclear(&head_b);
 	return (0);

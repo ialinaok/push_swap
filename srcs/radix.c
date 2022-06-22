@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 00:05:38 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/22 16:32:14 by ialinaok         ###   ########.fr       */
+/*   Updated: 2022/06/22 19:39:08 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@ void	radix(t_list **head_a, t_list **head_b, int len)
 	max_el = len - 1;
 	max_shift = 0;
 	temp = *head_b;
-	printf("len: %d, max_el: %d, max_shift: %d\n", len, max_el, max_shift);
+	// printf("len: %d, max_el: %d, max_shift: %d\n", len, max_el, max_shift);
 	while ((max_el>>max_shift) != 0)
 	{
-		int blah = max_el>>max_shift;
-		printf("ignore me %d\n", blah);
+		// printf("ignore me %d\n", blah);
 		i = 0;
-		while (i < max_shift)
+		while (i <= max_shift)
 		{
 			j = 0;
 			while (j < len)
@@ -52,7 +51,7 @@ void	radix(t_list **head_a, t_list **head_b, int len)
 			}
 			i++;
 		}
-		printlist(*head_a, *head_b);
+		// printlist(*head_a, *head_b);
 		max_shift++;
 	}
 }
