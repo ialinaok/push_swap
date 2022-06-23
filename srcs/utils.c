@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 14:32:05 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/18 23:24:32 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/24 00:28:08 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,14 @@ int	ft_strlen(const char *s)
 
 	n = 0;
 	while (s[n] != '\0')
-	{
 		n++;
-	}
 	return (n);
+}
+
+int	ft_isdigit(int n)
+{
+	if (n >= '0' && n <= '9')
+		return (1);
+	else
+		return (0);
 }

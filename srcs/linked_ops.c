@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 22:58:17 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/23 00:06:57 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/24 00:25:41 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_lstclear(t_list **lst)
 	t_list	*first;
 	t_list	*next;
 
-	if (lst)
+	if (lst && *lst)
 	{
 		next = *lst;
 		while (next != NULL)
@@ -75,38 +75,4 @@ void	ft_lstclear(t_list **lst)
 		}
 		*lst = NULL;
 	}
-}
-
-void	printlist(t_list *head_a, t_list *head_b)
-{
-	t_list	*temp_a = head_a;
-	t_list	*temp_b = head_b;
-	
-	while (temp_a != NULL)
-	{
-		printf("%d  ", temp_a->index);
-		printf("%d\n", temp_a->content);
-		if (temp_b != NULL)
-		{
-			printf("%d  ", temp_b->index);
-			printf("%d\n", temp_b->content);
-			temp_b = temp_b->next;
-		}
-		temp_a = temp_a->next;
-	}
-	printf("_\t_\na\tb\n\n");
-}
-
-t_list	*get_nth_el(t_list *head, int n)
-{
-	int	i;
-	t_list	*temp;
-
-	i = 0;
-	temp = head;
-	if (temp == NULL)
-		return (NULL);
-	if (n == 0)
-		return (temp);
-	return (get_nth_el(temp->next, n - 1));
 }

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 01:33:34 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/23 00:14:27 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/24 00:28:25 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sort_two(t_list **head_a)
 
 	first = *head_a;
 	second = first->next;
-	if (first->index > second->index)
+	if (first->i > second->i)
 		sa(head_a);
 	else
 		return ;
@@ -28,46 +28,44 @@ void	sort_two(t_list **head_a)
 void	sort_three(t_list **head_a)
 {
 	t_list	*top;
-	t_list	*middle;
-	t_list	*bottom;
+	t_list	*mid;
+	t_list	*bot;
 
 	top = *head_a;
-	middle = top->next;
-	bottom = middle->next;
-	if (top->index > middle->index && middle->index > bottom->index)
+	mid = top->next;
+	bot = mid->next;
+	if (top->i > mid->i && mid->i > bot->i && top->i > bot->i)
 	{
 		sa(head_a);
 		rra(head_a);
 	}
-	else if (top->index > middle->index && top->index < bottom->index)
+	else if (top->i > mid->i && mid->i < bot->i && top->i < bot->i)
 		sa(head_a);
-	else if (top->index < middle->index && middle->index > bottom->index)
+	else if (top->i < mid->i && mid->i > bot->i && top->i < bot->i)
 	{
 		sa(head_a);
 		ra(head_a);
 	}
-	else if (top->index < middle->index && top->index > bottom->index)
+	else if (top->i < mid->i && mid->i > bot->i && top->i > bot->i)
 		rra(head_a);
-	else if (top->index > bottom->index && middle->index < bottom->index)
+	else if (top->i > mid->i && mid->i < bot->i && top->i > bot->i)
 		ra(head_a);
 }
 
 void	sort_five(t_list **head_a, t_list **head_b)
 {
 	t_list	*top;
-	int		i;
 
 	top = *head_a;
 	*head_b = NULL;
-	i = 0;
-	while (top->index != 0)
+	while (top->i != 0)
 	{
 		ra(head_a);
 		top = *head_a;
 	}
 	pb(head_b, head_a);
 	top = *head_a;
-	while (top->index != 1)
+	while (top->i != 1)
 	{
 		ra(head_a);
 		top = *head_a;

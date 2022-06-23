@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 15:23:19 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/23 00:19:29 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/23 01:10:30 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ int	check_if_number(int argc, char **argv)
 		k = 0;
 		while (k < ft_strlen(argv[i]))
 		{
-			if (argv[i][k] == '-' || argv[i][k] == '+')
+			if ((argv[i][k] == '-' || argv[i][k] == '+'))
 				k++;
+			if (!ft_isdigit(argv[i][k]))
+				return (-1);
 			while ((argv[i][k] >= '0' && argv[i][k] <= '9') \
 			&& k < ft_strlen(argv[i]))
 				k++;

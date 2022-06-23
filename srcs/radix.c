@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 00:05:38 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/22 23:52:20 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/23 00:55:23 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	ra_or_pb(t_list **head_a, t_list **head_b, int max_shift)
 	temp = top;
 	while (temp != NULL)
 	{
-		if (((temp->index >> max_shift) & 1) == 0)
+		if (((temp->i >> max_shift) & 1) == 0)
 			i++;
 		temp = temp->next;
 	}
-	if (((top->index >> max_shift) & 1) == 1)
+	if (((top->i >> max_shift) & 1) == 1)
 		ra(head_a);
 	else
 		pb(head_b, head_a);

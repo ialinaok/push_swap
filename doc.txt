@@ -501,4 +501,12 @@ find the smallest
 rotate ra or rra depending on where it is
 push it to b
 then find the second smallest - same 
-and push to b
+and push to b]
+
+for the checker = run gnl while true
+
+how to check the stacks? stack be must be pointing to NULL
+stack a - get the length
+in a loop - until you run out of len, check if the next thing is bigger
+if it is and you get out of the loop - OK
+if not - KO, break the loop
