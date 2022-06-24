@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 01:33:34 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/24 00:28:25 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/24 14:52:57 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,19 @@ void	sort_three(t_list **head_a)
 		rra(head_a);
 	else if (top->i > mid->i && mid->i < bot->i && top->i > bot->i)
 		ra(head_a);
+}
+
+void	rotate_or_reverse(t_list **head_a)
+{
+	t_list	*temp;
+	int		i;
+
+	temp = *head_a;
+	i = 0;
+	while (temp != NULL)
+	{
+		if (temp->i < temp->i)
+	}
 }
 
 void	sort_five(t_list **head_a, t_list **head_b)
