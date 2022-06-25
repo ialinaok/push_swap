@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 01:33:34 by apielasz          #+#    #+#             */
-/*   Updated: 2022/06/24 14:52:57 by apielasz         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:08:39 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,35 +52,55 @@ void	sort_three(t_list **head_a)
 		ra(head_a);
 }
 
-void	rotate_or_reverse(t_list **head_a)
+int	rotate_or_reverse(t_list **head_a)
 {
 	t_list	*temp;
+	t_list	*min;
 	int		i;
 
 	temp = *head_a;
+	min = temp;
 	i = 0;
 	while (temp != NULL)
 	{
-		if (temp->i < temp->i)
+		if (temp->i < min->i)
+			min = temp;
+		temp = temp->next;
 	}
+	temp = *head_a;
+	while (i < 5)
+	{
+		if (temp->i == min->i)
+			break ;
+		i++;
+	}
+	if (i < 2)
+		return (e_ra);
+	else
+		return (e_rra);
 }
 
 void	sort_five(t_list **head_a, t_list **head_b)
 {
 	t_list	*top;
+	void	(*fun_ptr)(t_list **);
 
 	top = *head_a;
 	*head_b = NULL;
+	if (rotate_or_reverse(head_a) == e_ra)
+		fun_ptr = &ra;
+	else if (rotate_or_reverse(head_a) == e_rra)
+		fun_ptr = &rra;
 	while (top->i != 0)
 	{
-		ra(head_a);
+		fun_ptr(head_a);
 		top = *head_a;
 	}
 	pb(head_b, head_a);
 	top = *head_a;
 	while (top->i != 1)
 	{
-		ra(head_a);
+		fun_ptr(head_a);
 		top = *head_a;
 	}
 	pb(head_b, head_a);
